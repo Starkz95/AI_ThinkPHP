@@ -1,0 +1,269 @@
+﻿<!DOCTYPE html>
+<?php session_start(); ?>
+<html>
+<head>
+<title>Home</title>
+<!-- for-mobile-apps -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //for-mobile-apps -->
+<link href="__CSS__/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href="__CSS__/pgwslider.css" rel="stylesheet" type="text/css" media="all" />
+
+<link href="__CSS__/style.css" rel="stylesheet" type="text/css" media="all" />
+<!-- js -->
+<script src="__JS__/jquery-1.11.1.min.js"></script>
+
+<script src="__JS__/pgwslider.min.js"></script>
+<!-- //js -->
+<!-- start-smoth-scrolling -->
+
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event){		
+			event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+		});
+	});
+</script>
+<!-- start-smoth-scrolling -->
+</head>
+	
+<body>
+<!-- banner-body -->
+	<div class="banner-body">
+		<div class="container">
+<!-- header -->
+			<div class="header">
+				<div class="header-nav">
+					<nav class="navbar navbar-default">
+						<!-- Brand and toggle get grouped for better mobile display -->
+						<div class="navbar-header">
+						  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						  </button>
+							<a class="navbar-brand" href="/index.php/Home/Index/index"><span>AI</span></a>
+						</div>
+
+						<!-- Collect the nav links, forms, and other content for toggling -->
+						<div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+						 <ul class="nav navbar-nav" style="margin-left: 20px">
+							<li class="hvr-bounce-to-bottom active"><a href="/index.php/Home/Index/index">Home</a></li>
+							<li class="hvr-bounce-to-bottom"><a href="/index.php/Home/Index/AI">Experience-Zone</a></li>
+							<li class="hvr-bounce-to-bottom"><a href="/index.php/Home/Index/portfolio">News</a></li>
+							<li class="hvr-bounce-to-bottom"><a href="/index.php/Home/Index/group">Group</a></li>
+							<li class="hvr-bounce-to-bottom"><a href="#">Contact Us</a></li>
+						  </ul>
+							<div>
+							<form class="navbar-form navbar-left" action="/index.php/Home/Index/search" method="post">
+								<input type="text" name="str" class="form-control" placeholder="Search" style="outline: none;position: absolute;width: 220px;opacity: 0.75;">
+								<button type="submit" class="bimg" style="outline: none;border: none;cursor: pointer;position: absolute;left: 780px;"></button>
+							</form>
+							</div>
+
+                            <if condition="empty($_SESSION['username']) neq true">
+                            <if condition="$tag eq 0">
+                            <div style="vertical-align: middle;text-align: center; margin-left:220px;margin-top:12px;display: inline-block">
+									<a style="font-weight: bold" href="/index.php/Home/Index/backindex">DMS</a>
+                            </div>
+                                <div style="vertical-align: middle;text-align: center; margin-left:15px;margin-top:12px;display: inline-block">
+                                    <a style="font-weight: bold" href="/index.php/Home/Index/desession">Logoff</a>
+                                </div>
+                            </if>
+                            <if condition="$tag eq 1">
+                                <div style="vertical-align: middle;text-align: center; margin-left:220px;margin-top:12px;display: inline-block">
+                                    <a style="font-weight: bold" href="/index.php/Home/Index/desession">Logoff</a>
+                                </div>
+                            </if>
+                            </if>
+						  <div class="sign-in" style="display: inline-block">
+                              <if condition="empty($_SESSION['username']) eq true">
+							    <ul>
+								<li><a href="/index.php/Home/Index/login">Login</a>/</li>
+								<li><a href="/index.php/Home/Index/register">Register</a></li>
+							    </ul>
+                              </if>
+                              <if condition="empty($_SESSION['username']) neq true">
+                                  <ul>
+                                      <li><a href="/index.php/Home/Index/personal/uid/{$uid}">Welcome</a></li>
+                                      <li><a href="/index.php/Home/Index/personal/uid/{$uid}">{$name}</a></li>
+                                  </ul>
+
+                              </if>
+							</div>
+						</div><!-- /.navbar-collapse -->
+					</nav>
+				</div>
+	
+			<!-- search-scripts -->
+			<!--<script src="js/classie.js"></script>
+			<script src="js/uisearch.js"></script>-->
+				<script>
+					new UISearch( document.getElementById( 'sb-search' ) );
+				</script>
+			<!-- //search-scripts -->
+			</div>
+<!-- //header -->
+<!-- header-bottom -->
+<div class="image">
+            <ul class="pgwSlider" style="">
+                <volist name="a" id="vo">
+                <li><a href="/index.php/Home/Index/single/aid/{$vo.aid}"><img src="{$vo.aimage}"><span>{$vo.atitle}</span></a></li>
+                </volist>
+    <!--<li><a href="#" target="_blank"><img src="__IMAGES__/montreal.jpg"><span>montreal</span></a></li>
+    <li><a href="#" target="_blank"><img src="__IMAGES__/shanghai.jpg"> <span>Shanghai</span></a></li>
+    <li> <a href="#" target="_blank"> <img src="__IMAGES__/new-york.jpg"> <span>New York, NY, USA</span> </a> </li>-->
+</ul>
+</div>
+	<div class="header-bottom">
+        <div class="header-bottom-top">
+            <!--<ul>
+                <li><a href="#" class="g"> </a></li>
+                <li><a href="#" class="p"> </a></li>
+                <li><a href="#" class="facebook"> </a></li>
+                <li><a href="#" class="twitter"> </a></li>
+            </ul>-->
+        </div>
+		<div class="clearfix"> </div>
+<!-- banner -->
+		<div class="banner">
+<!-- Slider-starts-Here -->
+
+<!-- //banner -->
+<!-- banner-bottom -->
+			<div class="banner-bottom">
+				<ul id="flexiselDemo1">
+                    <volist name="b" id="vo">
+					<li>
+						<div class="banner-bottom-grid">
+							<img src="{$vo.aimage}" alt=" " class="img-responsive-m" width="300px" height="200px"/>
+							<p style="height: 50px">{$vo.atitle}</p>
+							<div class="more">
+								<a class="hvr-bounce-to-bottom sint" href="/index.php/Home/Index/single/aid/{$vo.aid}">View more</a>
+							</div>
+						</div>
+                    </li>
+					</volist>
+				</ul>
+				<script type="text/javascript">
+							$(window).load(function() {
+								$("#flexiselDemo1").flexisel({
+									visibleItems: 3,
+									animationSpeed: 1000,
+									autoPlay: false,
+									autoPlaySpeed: 3000,    		
+									pauseOnHover: true,
+									enableResponsiveBreakpoints: true,
+									responsiveBreakpoints: { 
+										portrait: { 
+											changePoint:480,
+											visibleItems: 1
+										}, 
+										landscape: { 
+											changePoint:640,
+											visibleItems:2
+										},
+										tablet: { 
+											changePoint:768,
+											visibleItems: 3
+										}
+									}
+								});
+								
+							});
+					</script>
+					<script type="text/javascript" src="__JS__/jquery.flexisel.js"></script>
+
+			</div>
+<!-- //banner-bottom -->
+
+<!-- blog -->
+			<div class="blog">
+				<div class="blog-left">
+                    <volist name="c" id="vo">
+					<div class="blog-left-grid">
+						<div class="blog-left-grid-left">
+							<h3 style="width: 600px"><a href="/index.php/Home/Index/single/aid/{$vo.aid}">{$vo.atitle}</a></h3>
+							<p>Release Time   <span>{$vo.atime}</span> | Type    <span>{$vo.atype}</span></p>
+						</div>
+						<div class="blog-left-grid-right">
+							<!--<a href="single.html#comment" class="hvr-bounce-to-bottom non">20</a>-->
+						</div>
+                        <div class="clearfix"> </div>
+						<a href="/index.php/Home/Index/single/aid/{$vo.aid}"><img src="{$vo.aimage}" alt=" " class="img-responsive" width="600" height="400"/></a>
+						<p class="para"></p>
+						<div class="rd-mre">
+							<a class="hvr-bounce-to-bottom quod" href="/index.php/Home/Index/single/aid/{$vo.aid}">View more</a>
+						</div>
+                    <hr>
+					</div>
+                        <div class="clearfix"> </div>
+
+                    </volist>
+				</div>
+				<div class="blog-right">
+                    <!--<div class="group-T">-->
+                        <!--<h3>-->
+                            <!--Popular Group-->
+							<!--</br>-->
+							<!--</br>-->
+                        <!--</h3>-->
+                    <!--</div>-->
+                    <div class="groups">
+                        <ul class="groups-ul">
+                          <volist name="d" id="vo">
+                            <li style="padding-bottom: 50px">
+                                <a href="#" class="g-pic " style="width: auto"><img width="55" height="50" src="{$vo.gimage}" ></a>
+                                <div class="g-txt" style="width: 70%;float:right;">
+                                    <h2 style="font-size: 12px;">
+                                        <a style="font-size: 13px" class="label label-warning" href="/index.php/Home/Index/group_topic/gid/{$vo.gid}">{$vo.gname}</a>
+
+                                    </h2>
+                                    <div class="g-txt-p" style="position: absolute;margin-left: -90px;margin-top: 10px">
+                                        <!--<p>-->
+                                           <!--{$vo.ginfo}-->
+                                        <!--</p>-->
+											<span style="font-size: 12px;margin-left: 0px;margin-top: 26px">{$vo.ginfo}</span>
+                                    </div>
+                                </div>
+                            </li>
+                              <hr style="margin-top: 1px">
+                          </volist>
+                        </ul>
+                    </div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+<!-- //blog -->
+	</div>
+<!-- //header-bottom -->
+		</div>
+	</div>
+<!-- //banner-body -->
+<!-- footer -->
+
+	<!--<div class="footer-bottom">-->
+		<!--<div class="container">-->
+
+		<!--</div>-->
+	<!--</div>-->
+<!-- //footer -->
+<!-- for bootstrap working -->
+		<script src="__JS__/bootstrap.js"> </script>
+<!-- //for bootstrap working -->
+    </div>
+</body>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(document).ready(function() {
+            $('.pgwSlider').pgwSlider();
+        });
+    });
+</script>
+</html>

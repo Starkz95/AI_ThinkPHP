@@ -1,0 +1,328 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Register</title>
+<!-- for-mobile-apps -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //for-mobile-apps -->
+<link href="__CSS__/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href="__CSS__/style.css" rel="stylesheet" type="text/css" media="all" />
+	<link rel="stylesheet" href="__ASSETS__/css/amazeui.min.css" />
+	<link rel="stylesheet" href="__ASSETS__/css/admin.css">
+	<link rel="stylesheet" href="__ASSETS__/css/app.css">
+
+<!-- js -->
+<script src="__JS__/jquery-1.11.1.min.js"></script>
+<!-- //js -->
+<!-- start-smoth-scrolling -->
+<script type="text/javascript" src="__JS__/move-top.js"></script>
+<script type="text/javascript" src="__JS__/easing.js"></script>
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event){		
+			event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+		});
+	});
+</script>
+<!-- start-smoth-scrolling -->
+</head>
+	
+<body>
+<!-- banner-body -->
+	<div class="banner-body regstr">
+		<div class="container">
+<!-- header -->
+			<div class="header">
+				<div class="header-nav">
+					<nav class="navbar navbar-default">
+						<!-- Brand and toggle get grouped for better mobile display -->
+						<div class="navbar-header">
+						  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						  </button>
+						   <a class="navbar-brand" href="/index.php/Home/Index/index"><span>AI</span></a>
+						</div>
+
+						<!-- Collect the nav links, forms, and other content for toggling -->
+						<div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+						 <ul class="nav navbar-nav" style="margin-left: 20px">
+							<li class="hvr-bounce-to-bottom"><a href="/index.php/Home/Index/index">Home</a></li>
+							<li class="hvr-bounce-to-bottom"><a href="/index.php/Home/Index/AI">Experience-Zone</a></li>
+							<li class="hvr-bounce-to-bottom"><a href="/index.php/Home/Index/portfolio">News</a></li>
+							<li class="hvr-bounce-to-bottom"><a href="/index.php/Home/Index/group">Group</a></li>
+							<li class="hvr-bounce-to-bottom"><a href="#">Contact Us</a></li>
+						  </ul>
+							<div>
+								<form class="navbar-form navbar-left" action="/index.php/Home/Index/search" method="post">
+									<input type="text" name="str" class="form-control" placeholder="Search" style="outline: none;position: absolute;width: 220px;opacity: 0.75;">
+									<button type="submit" class="bimg" style="outline: none;border: none;cursor: pointer;position: absolute;left: 780px;"></button>
+								</form>
+							</div>
+						  <div class="sign-in">
+							<ul>
+								<li><a href="/index.php/Home/Index/login">Login</a>/</li>
+								<li><a href="/index.php/Home/Index/register">Register</a></li>
+							</ul>
+							</div>
+						</div><!-- /.navbar-collapse -->
+					</nav>
+				</div>
+	
+			<!-- search-scripts -->
+			<script src="__JS__/classie.js"></script>
+			<script src="__JS__/uisearch.js"></script>
+				<script>
+					new UISearch( document.getElementById( 'sb-search' ) );
+				</script>
+			<!-- //search-scripts -->
+			</div>
+<!-- //header -->
+<!-- register -->
+			<div class="sign-up-form">
+				<h3>Registration</h3>
+				<div class="sign-up">
+					<form action="/index.php/Home/Index/userregister" method="post" enctype="multipart/form-data">
+					<h5>Personal Information</h5>
+					<div class="sign-u">
+						<div class="sign-up1">
+							<h4 class="a">Username* :</h4>
+						</div>
+						<div class="sign-up2" style="margin-left: 10px;">
+							<div style="display: inline-block;">
+								<input type="text" style="width:300px;" name="UserName" id="User_UserName" onblur="checkUserName()"/>
+							</div>
+							  <span id="usernamecheck" style="color:red;font-size:15px;margin-left: 10px;"></span>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					<div class="sign-u">
+						<div class="sign-up1">
+							<h4 class="b">Name* :</h4>
+						</div>
+						<div class="sign-up2">
+							<div  style="display: inline-block;">
+								<input type="text" name="Name" id="User_Name" onblur="checkName()" style="width:300px;"/>
+							</div>
+							<span id="namecheck" style="color:red;font-size:15px;margin-left: 10px"></span>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+
+					<div class="sign-u">
+						<div class="sign-up1">
+							<h4 class="c">Email* :</h4>
+						</div>
+						<div class="sign-up2">
+							<div  style="display: inline-block;">
+								<input type="text" name="email" id="useremail" style="width:300px;" onblur="checkemail()"/>
+							</div>
+							<span id="emailcheck" style="color:red;font-size:15px;margin-left: 10px"></span>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+
+						<div class="sign-u">
+							<div class="sign-up1">
+								<h4 class="c">Profile Picture* :</h4>
+							</div>
+							<div class="sign-up2">
+								<div class="am-form-group am-form-file">
+                               <div style="margin-top: 10px">
+									<img src="__IMAGES__/user.png" alt="" id="uploadhimg" width="50" height="50">
+
+									<button type="button" class="am-btn am-btn-danger am-btn-sm" style="margin-left: 20px;">Add image</button>
+									<input type="file" id="himgUpload" name="photo1" >
+							   		</div>
+								</div>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+
+						<div class="sign-u">
+							<div class="sign-up1">
+								<h4 class="c">Gender* :</h4>
+							</div>
+							<div class="sign-up2" style="margin-top: 30px;">
+
+								<input type="radio" value="1" name="sex" required> <i></i>Male
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<input type="radio" value="2" name="sex" required> <i></i>Female
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+
+
+
+					<h6>Login Information</h6>
+					<div class="sign-u">
+						<div class="sign-up1">
+							<h4 class="d">Password* :</h4>
+						</div>
+						<div class="sign-up2">
+							<div style="display: inline-block;" >
+								<input type="password" name="Pwd" id="User_Pwd" style="width:300px;"/>
+							</div>
+							<span id="Pwdcheck" style="color:red;font-size:15px;margin-left: 10px"></span>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					<div class="sign-u">
+						<div class="sign-up1">
+							<h4>Password Confirm* :</h4>
+						</div>
+						<div class="sign-up2">
+							<div style="display: inline-block;">
+								<input type="password" name="Pwd2" id="User_Confirm" style="width:300px;"/>
+							</div>
+							<span id="confirmcheck" style="color:red;font-size:15px;margin-left: 10px"></span>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+
+					<div>
+						<input type="submit" value="Confirm" name="reg">
+					</div>
+
+					</form>
+				</div>
+			</div>
+<!-- //register -->
+		</div>
+	</div>
+<!-- footer -->
+<div class="footer-bottom">
+	<div class="container">
+	</div>
+</div>
+<!-- //footer -->
+<!-- for bootstrap working -->
+<script src="__JS__/bootstrap.js"> </script>
+<!-- //for bootstrap working -->
+</body>
+<script type="text/javascript">
+    function checkUserName(){
+
+        var unm=document.getElementById('User_UserName').value;
+        var xhr=new XMLHttpRequest();
+
+        xhr.onreadystatechange=function(){
+            if(xhr.readyState==4){
+                if (xhr.responseText=='Username available！') {
+                    document.getElementById('usernamecheck').innerHTML="<img src='__IMAGES__/right.png' height='25px' width='25px'/>";
+                }
+                else{
+                    document.getElementById('usernamecheck').innerHTML=xhr.responseText;
+                }
+
+            }
+        }
+        xhr.open('get','/index.php/Home/Index/checkUserName/username/'+unm);
+        xhr.send(null);
+    }
+    function checkName(){
+
+        var nm=document.getElementById('User_Name').value;
+        var xhr=new XMLHttpRequest();
+
+        xhr.onreadystatechange=function(){
+            if (xhr.responseText=='Name available！') {
+                document.getElementById('namecheck').innerHTML="<img src='__IMAGES__/right.png' height='25px' width='25px'/>";
+            }
+            else{
+                document.getElementById('namecheck').innerHTML=xhr.responseText;
+            }
+        }
+        xhr.open('get','/index.php/Home/Index/checkName/name/'+nm);
+        xhr.send(null);
+    }
+    function checkemail(){
+
+        var em=document.getElementById('useremail').value;
+        var xhr=new XMLHttpRequest();
+
+                    if ($("#useremail").val() == '') {
+                        $("#emailcheck").text("Email can not be empty！");
+                    }
+
+                    else {
+                        xhr.onreadystatechange=function() {
+                            if (xhr.responseText == 'This email already exists！') {
+
+                                document.getElementById('emailcheck').innerHTML = xhr.responseText;
+                            }
+                            if (xhr.responseText == 'Email available！'){
+                                if (/^[a-z0-9](\w|\.|-)*@\w{2,}\.(com|cn|net|com.cn|net.cn)$/.test($("#useremail").val()) == false) {
+                                    $("#emailcheck").text("The email format is incorrect, please re-fill!");
+
+                                }
+                                else {
+                                    document.getElementById('emailcheck').innerHTML="<img src='__IMAGES__/right.png' height='25px' width='25px'/>";
+
+                                }
+							}
+                        }
+
+                    }
+
+        xhr.open('get','/index.php/Home/Index/checkemail/email/'+em);
+        xhr.send(null);
+        }
+
+    $(function(){
+
+        $("#User_Confirm").blur(function(){
+
+            var pwd = $("input[name='Pwd']").val();
+            var cpwd = $("input[name='Pwd2']").val();
+            if(pwd != cpwd){
+                document.getElementById('confirmcheck').innerHTML="Entered passwords differ！";
+
+
+            }
+            if ($.isEmptyObject(cpwd)) {
+                document.getElementById('confirmcheck').innerHTML="Password can not be empty！";
+            }
+            else if (pwd == cpwd) {
+
+                document.getElementById('confirmcheck').innerHTML="<img src='__IMAGES__/right.png' height='25px' width='25px'/>";
+            }
+        });
+    });
+    $(function(){
+
+        $("#User_Pwd").blur(function(){
+
+            var pwd = $("input[name='Pwd']").val();
+            if($.isEmptyObject(pwd)){
+                document.getElementById('Pwdcheck').innerHTML="Password can not be empty！";
+
+
+            }
+            else {
+                document.getElementById('Pwdcheck').innerHTML="<img src='__IMAGES__/right.png' height='25px' width='25px'/>";
+            }
+        });
+    });
+    $("#himgUpload").change(function(e) {
+
+        for (var i = 0; i < e.target.files.length; i++) {
+            var file = e.target.files.item(i);
+            var freader = new FileReader();
+            freader.readAsDataURL(file);
+            freader.onload = function(e) {
+                var src = e.target.result;
+
+                $("#uploadhimg").attr("src",src);
+            }
+        }
+    });
+    </script>
+</html>

@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Login</title>
+<!-- for-mobile-apps -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //for-mobile-apps -->
+<link href="__CSS__/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href="__CSS__/style.css" rel="stylesheet" type="text/css" media="all" />
+<!-- js -->
+<script src="__JS__/jquery-1.11.1.min.js"></script>
+<!-- //js -->
+<!-- start-smoth-scrolling -->
+<script type="text/javascript" src="__JS__/move-top.js"></script>
+<script type="text/javascript" src="__JS__/easing.js"></script>
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event){		
+			event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+		});
+	});
+</script>
+<!-- start-smoth-scrolling -->
+</head>
+	
+<body>
+<!-- banner-body -->
+	<div class="banner-body logn">
+		<div class="container">
+<!-- header -->
+			<div class="header">
+				<div class="header-nav">
+					<nav class="navbar navbar-default">
+						<!-- Brand and toggle get grouped for better mobile display -->
+						<div class="navbar-header">
+						  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						  </button>
+						   <a class="navbar-brand" href="/index.php/Home/Index/index"><span>AI</span></a>
+						</div>
+
+						<!-- Collect the nav links, forms, and other content for toggling -->
+						<div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+						 <ul class="nav navbar-nav" style="margin-left: 20px">
+							<li class="hvr-bounce-to-bottom"><a href="/index.php/Home/Index/index">Home</a></li>
+							<li class="hvr-bounce-to-bottom"><a href="/index.php/Home/Index/AI">Experience-Zone</a></li>
+							<li class="hvr-bounce-to-bottom"><a href="/index.php/Home/Index/portfolio">News</a></li>
+							<li class="hvr-bounce-to-bottom"><a href="/index.php/Home/Index/group">Group</a></li>
+							<li class="hvr-bounce-to-bottom"><a href="#">Contact Us</a></li>
+						  </ul>
+							<div>
+								<form class="navbar-form navbar-left" action="/index.php/Home/Index/search" method="post">
+									<input type="text" name="str" class="form-control" placeholder="Search" style="outline: none;position: absolute;width: 220px;opacity: 0.75;">
+									<button type="submit" class="bimg" style="outline: none;border: none;cursor: pointer;position: absolute;left: 780px;"></button>
+								</form>
+							</div>
+						  <div class="sign-in">
+							<ul>
+								<li><a href="/index.php/Home/Index/login">Login</a>/</li>
+								<li><a href="/index.php/Home/Index/register">Register</a></li>
+							</ul>
+							</div>
+						</div><!-- /.navbar-collapse -->
+					</nav>
+				</div>
+	
+			<!-- search-scripts -->
+			<script src="__JS__/classie.js"></script>
+			<script src="__JS__/uisearch.js"></script>
+				<script>
+					new UISearch( document.getElementById( 'sb-search' ) );
+				</script>
+			<!-- //search-scripts -->
+			</div>
+<!-- //header -->
+<!-- login-page -->
+	<div class="login">
+		<div class="login-grids">
+			<div class="col-md-6 log">
+					 <h3>Login</h3>
+					 <form action="/index.php/Home/Index/userlogin" method="post">
+						 <h5>Username:</h5>
+						 <input type="text" value="" name="username">
+						 <h5>Password:</h5>
+						 <input type="password" value="" name="pwd">
+						 <input type="submit" value="Login" name="submit">
+						  
+					 </form>
+
+			</div>
+			<!--<div class="col-md-6 login-right">
+					<h3>New Registration</h3>
+					<p>By creating an account with our store, you will be able to move through the checkout process faster, store multiple shipping addresses, view and track your orders in your account and more.</p>
+					<a href="register.html" class="hvr-bounce-to-bottom button">Create An Account</a>
+			</div>
+			-->
+			<div class="clearfix"></div>
+
+		</div>
+	</div>
+<!-- //login-page -->
+		</div>
+	</div>
+
+<!-- footer -->
+	<div class="footer-bottom">
+		<div class="container">
+		</div>
+	</div>
+<!-- //footer -->
+<!-- for bootstrap working -->
+		<script src="__JS__/bootstrap.js"> </script>
+<!-- //for bootstrap working -->
+</body>
+</html>

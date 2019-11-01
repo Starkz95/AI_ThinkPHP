@@ -1,0 +1,236 @@
+﻿<!DOCTYPE html>
+<?php session_start(); ?>
+<html>
+<head>
+<title>Group</title>
+<!-- for-mobile-apps -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //for-mobile-apps -->
+<link href="__CSS__/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href="__CSS__/style.css" rel="stylesheet" type="text/css" media="all" />
+	<link rel="stylesheet" href="__ASSETS__/css/amazeui.min.css" />
+	<link rel="stylesheet" href="__ASSETS__/css/admin.css">
+	<link rel="stylesheet" href="__ASSETS__/css/app.css">
+<!-- js -->
+<script src="__JS__/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="__PLUGIN__/ue/ueditor.config.js"></script>
+	<script type="text/javascript" src="__PLUGIN__/ue/ueditor.all.min.js"></script>
+	<script type="text/javascript" src="__PLUGIN__/ue/lang/en/en.js"></script>
+<!-- //js -->
+<!-- start-smoth-scrolling -->
+<script type="text/javascript" src="__JS__/move-top.js"></script>
+<script type="text/javascript" src="__JS__/easing.js"></script>
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event){		
+			event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+		});
+	});
+</script>
+<!-- start-smoth-scrolling -->
+</head>
+	
+<body>
+<!-- banner-body -->
+	<div class="banner-body logn">
+		<div class="container">
+<!-- header -->
+			<div class="header">
+				<div class="header-nav">
+					<nav class="navbar navbar-default">
+						<!-- Brand and toggle get grouped for better mobile display -->
+						<div class="navbar-header">
+						  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						  </button>
+						   <a class="navbar-brand" href="/index.php/Home/Index/index"><span>AI</span></a>
+						</div>
+
+						<!-- Collect the nav links, forms, and other content for toggling -->
+						<div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+						 <ul class="nav navbar-nav" style="margin-left: 20px">
+							<li class="hvr-bounce-to-bottom"><a href="/index.php/Home/Index/index">Home</a></li>
+							<li class="hvr-bounce-to-bottom"><a href="/index.php/Home/Index/AI">Experience-Zone</a></li>
+							<li class="hvr-bounce-to-bottom"><a href="/index.php/Home/Index/portfolio">News</a></li>
+							<li class="hvr-bounce-to-bottom active"><a href="/index.php/Home/Index/group">Group</a></li>
+							<li class="hvr-bounce-to-bottom"><a href="#">Contact Us</a></li>
+						  </ul>
+							<div>
+								<form class="navbar-form navbar-left" action="/index.php/Home/Index/search" method="post">
+									<input type="text" name="str" class="form-control" placeholder="Search" style="outline: none;position: absolute;width: 220px;opacity: 0.75;">
+									<button type="submit" class="bimg" style="outline: none;border: none;cursor: pointer;position: absolute;left: 780px;"></button>
+								</form>
+							</div>
+
+							<if condition="empty($_SESSION['username']) neq true">
+								<if condition="$tag eq 0">
+									<div style="vertical-align: middle;text-align: center; margin-left:220px;margin-top:12px;display: inline-block">
+										<a style="font-weight: bold" href="/index.php/Home/Index/backindex">DMS</a>
+									</div>
+									<div style="vertical-align: middle;text-align: center; margin-left:15px;margin-top:12px;display: inline-block">
+										<a style="font-weight: bold" href="/index.php/Home/Index/desession">Logoff</a>
+									</div>
+								</if>
+								<if condition="$tag eq 1">
+									<div style="vertical-align: middle;text-align: center; margin-left:220px;margin-top:12px;display: inline-block">
+										<a style="font-weight: bold" href="/index.php/Home/Index/desession">Logoff</a>
+									</div>
+								</if>
+							</if>
+							<div class="sign-in" style="display: inline-block">
+								<if condition="empty($_SESSION['username']) eq true">
+									<ul>
+										<li><a href="/index.php/Home/Index/login">Login</a>/</li>
+										<li><a href="/index.php/Home/Index/register">Register</a></li>
+									</ul>
+								</if>
+								<if condition="empty($_SESSION['username']) neq true">
+									<ul>
+										<li><a href="/index.php/Home/Index/personal/uid/{$uid}">Welcome</a></li>
+										<li><a href="/index.php/Home/Index/personal/uid/{$uid}">{$name}</a></li>
+									</ul>
+
+								</if>
+							</div>
+						</div><!-- /.navbar-collapse -->
+					</nav>
+				</div>
+	
+			<!-- search-scripts -->
+
+				<script>
+					new UISearch( document.getElementById( 'sb-search' ) );
+				</script>
+			<!-- //search-scripts -->
+			</div>
+<!-- //header -->
+<!-- //body -->
+			<div class="gMain">
+				<div class="g-top" style="width: 96%;height:120px;margin: 0 auto;border-bottom: 1px solid #c6c6c6;padding-bottom: 30px;">
+					<div class="gt-l" style="float:left;position: relative;top:15px">
+						<div style="float:left;width: 70px">
+							<a href="#"><img width="60" height="50" src="{$group.gimage}"  style="float: left;margin: 10px;"></a>
+						</div>
+						<div style="float:left;position: relative;left: 20px;top:15px"><h3 style="margin-bottom: 15px;font-size: 18px"><a href="#">{$group.gname}</a></h3><span><img width="25px" height="25px" src="__IMAGES__/Gnumber.png"> {$group.member}</span></div>
+						<div style="float: right;position: relative;left: 100px;top: 15px;">{$group.ginfo}</div>
+					</div>
+					<if condition="empty($_SESSION['username']) eq true">
+						<div class="gt-r" style="font-size:15px;background-color:#6dc340;padding:8px 10px;float:right;position: relative;top: 45px;right: 50px;"><a href="/index.php/Home/Index/login" style="color: #ffffff">Please Login First</a></div>
+					</if>
+					<if condition="empty($_SESSION['username']) neq true">
+						<if condition="empty($group['mix']) eq true">
+							<div class="gt-r" style="font-size:15px;background-color:#6dc340;padding:8px 10px;float:right;position: relative;top: 45px;right: 50px;"><a href="/index.php/Home/Index/joingroup/gid/{$group.gid}" style="color: #ffffff">Join</a></div>
+						</if>
+						<if condition="empty($group['mix']) neq true">
+							<div class="gt-r" style="font-size:15px;background-color:#ff5151;padding:8px 10px;float:right;position: relative;top: 45px;right: 50px;"><a href="/index.php/Home/Index/outgroup_topic/gid/{$group.gid}" style="color: #ffffff">Exit</a></div>
+						</if>
+					</if>
+				</div>
+				 <div class="group-Content">
+					<h3 style="color: #C34C21;text-align: left;text-transform: capitalize;padding: 2em 0 1em;font-size:23px;margin: 0;font-family: LobsterTwo-Regular;">Popular Post</h3>
+					<hr/>
+					<ul>
+						<volist name="topic" id="vo">
+						<li>
+							<div class="content">
+								<div class="bs-example">
+								<table class="table">
+									<tbody>
+								<tr>
+									<td><a class="anchorjs-link" href="/index.php/Home/Index/topic/tid/{$vo.tid}"><span class="anchorjs-icon" style="font-size: 20px">{$vo.ttitle}</span></a></td>
+								</tr>
+									</tbody>
+								</table>
+								</div>
+								<div class="info" style="margin-left: 10px">
+									<span></span>
+									<a href="#">{$vo.name}</a>
+									posted on {$vo.ttime}
+								</div>
+							</div>
+							<div>
+							<a class="talk" href="#">
+								<span>
+									<img src="__IMAGES__/talk.png">
+								</span>
+								<span>{$vo.reply}</span>
+							</a>
+							</div>
+						</li>
+						</volist>
+				</ul>
+				</div>
+				<div class="group-right">
+					<h3 style="color: #C34C21;text-align: left;text-transform: capitalize;padding: 2em 0 1em;font-size:23px;margin: 0;font-family: LobsterTwo-Regular;">Group Member</h3>
+					<div class="groups">
+						<ul class="groups-ul">
+							<volist name="member" id="vo">
+							<li>
+								<img width="50" height="50" src="{$vo.image}" >
+								<div class="g-txt" style="width: 70%;float:right;">
+									<h2 style="font-size: 15px;">
+										<a href="/index.php/Home/Index/personal/uid/{$vo.uid}">{$vo.name}</a>
+									</h2>
+								</div>
+							</li>
+								<hr/>
+							</volist>
+						</ul>
+					</div>
+				</div>
+
+			</div>
+			<div style="width: auto;background-color: white;">
+				<div style="margin-left: 100px">
+					<h3 style="color: #C34C21;text-align: left;text-transform: capitalize;padding: 2em 0 1em;font-size:23px;margin: 0;font-family: LobsterTwo-Regular;">Posting</h3>
+					<if condition="empty($group['mix']) eq true">
+						<div><h3 style="color: #C34C21;text-align: left;text-transform: capitalize;padding: 2em 0 1em;font-size:20px;margin: 0;font-family: LobsterTwo-Regular;">You have not joined this group yet！</h3></div>
+					</if>
+					<if condition="empty($group['mix']) neq true">
+						<form action="/index.php/Home/Index/topicpublish/gid/{$group.gid}" method="post">
+							<div>
+								<label>Title：</label><br>
+								<input type="text" name="ttitle" style="border:solid 1px black;width: 400px">
+							</div>
+							<br>
+							<div>
+								<label>Main body：</label><br>
+							<script id="editor" type="text/plain" name='ttext' style="width:600px;height:200px;"></script>
+                            <input type="submit" value="发布" style="margin-top: 10px" name="sub" class="am-btn am-btn-danger am-btn-sm">
+                                </form>
+                                </if>
+                            </div>
+							</div>
+								<div style="height:50px"></div>
+			</div>
+
+
+<!-- for bootstrap working -->
+		<script src="__JS__/bootstrap.js"> </script>
+<!-- //for bootstrap working -->
+</body>
+<script type="text/javascript">
+    var ue=UE.getEditor('editor',{
+        toolbars: [
+            [   'fullscreen', 'source', '|', 'undo', 'redo', '|',
+                'bold', 'italic', 'underline', 'fontborder', 'strikethrough', 'superscript', 'subscript', 'removeformat', 'formatmatch', 'autotypeset', 'blockquote', 'pasteplain', '|', 'forecolor', 'backcolor', 'insertorderedlist', 'insertunorderedlist', 'selectall', 'cleardoc', '|',
+                'rowspacingtop', 'rowspacingbottom', 'lineheight', '|',
+                'customstyle', 'paragraph', 'fontfamily', 'fontsize', '|',
+                'directionalityltr', 'directionalityrtl', 'indent', '|',
+                'justifyleft', 'justifycenter', 'justifyright', 'justifyjustify', '|', 'touppercase', 'tolowercase', '|',
+                'link', 'unlink', 'anchor', '|', 'imagenone', 'imageleft', 'imageright', 'imagecenter', '|',
+                'simpleupload', 'insertimage', 'emotion', 'scrawl', 'insertvideo', 'music', 'attachment', 'map', 'gmap', 'insertframe', 'insertcode', 'webapp', 'pagebreak', 'template', 'background',]
+        ],
+        autoHeightEnabled: true,
+        autoFloatEnabled: true
+    });
+</script>
+</html>

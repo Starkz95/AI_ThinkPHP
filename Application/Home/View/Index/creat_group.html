@@ -1,0 +1,197 @@
+﻿<!DOCTYPE html>
+<?php session_start(); ?>
+<html>
+<head>
+<title></title>
+<!-- for-mobile-apps -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //for-mobile-apps -->
+<link href="__CSS__/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href="__CSS__/style.css" rel="stylesheet" type="text/css" media="all" />
+	<link rel="stylesheet" href="__ASSETS__/css/amazeui.min.css" />
+	<link rel="stylesheet" href="__ASSETS__/css/admin.css">
+	<link rel="stylesheet" href="__ASSETS__/css/app.css">
+<!-- js -->
+<script src="__JS__/jquery-1.11.1.min.js"></script>
+<!-- //js -->
+<!-- start-smoth-scrolling -->
+<script type="text/javascript" src="__JS__/move-top.js"></script>
+<script type="text/javascript" src="__JS__/easing.js"></script>
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event){		
+			event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+		});
+	});
+</script>
+<!-- start-smoth-scrolling -->
+</head>
+	
+<body>
+<!-- banner-body -->
+	<div class="banner-body logn">
+		<div class="container">
+<!-- header -->
+			<div class="header">
+				<div class="header-nav">
+					<nav class="navbar navbar-default">
+						<!-- Brand and toggle get grouped for better mobile display -->
+						<div class="navbar-header">
+						  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						  </button>
+						   <a class="navbar-brand" href="/index.php/Home/Index/index"><span>AI</span></a>
+						</div>
+
+						<!-- Collect the nav links, forms, and other content for toggling -->
+						<div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+						 <ul class="nav navbar-nav" style="margin-left: 20px">
+							<li class="hvr-bounce-to-bottom"><a href="/index.php/Home/Index/index">Home</a></li>
+							<li class="hvr-bounce-to-bottom"><a href="/index.php/Home/Index/AI">Experience-Zone</a></li>
+							<li class="hvr-bounce-to-bottom"><a href="/index.php/Home/Index/portfolio">News</a></li>
+							<li class="hvr-bounce-to-bottom"><a href="/index.php/Home/Index/group">Group</a></li>
+							<li class="hvr-bounce-to-bottom"><a href="#">Contact Us</a></li>
+						  </ul>
+							<div>
+								<form class="navbar-form navbar-left" action="/index.php/Home/Index/search" method="post">
+									<input type="text" name="str" class="form-control" placeholder="Search" style="outline: none;position: absolute;width: 220px;opacity: 0.75;">
+									<button type="submit" class="bimg" style="outline: none;border: none;cursor: pointer;position: absolute;left: 780px;"></button>
+								</form>
+							</div>
+
+							<if condition="empty($_SESSION['username']) neq true">
+								<if condition="$tag eq 0">
+									<div style="vertical-align: middle;text-align: center; margin-left:220px;margin-top:12px;display: inline-block">
+										<a style="font-weight: bold" href="/index.php/Home/Index/backindex">DMS</a>
+									</div>
+									<div style="vertical-align: middle;text-align: center; margin-left:15px;margin-top:12px;display: inline-block">
+										<a style="font-weight: bold" href="/index.php/Home/Index/desession">Logoff</a>
+									</div>
+								</if>
+								<if condition="$tag eq 1">
+									<div style="vertical-align: middle;text-align: center; margin-left:220px;margin-top:12px;display: inline-block">
+										<a style="font-weight: bold" href="/index.php/Home/Index/desession">Logoff</a>
+									</div>
+								</if>
+							</if>
+							<div class="sign-in" style="display: inline-block">
+								<if condition="empty($_SESSION['username']) eq true">
+									<ul>
+										<li><a href="/index.php/Home/Index/login">Login</a>/</li>
+										<li><a href="/index.php/Home/Index/register">Register</a></li>
+									</ul>
+								</if>
+								<if condition="empty($_SESSION['username']) neq true">
+									<ul>
+										<li><a href="/index.php/Home/Index/personal/uid/{$uid}">Welcome</a></li>
+										<li><a href="/index.php/Home/Index/personal/uid/{$uid}">{$name}</a></li>
+									</ul>
+
+								</if>
+							</div>
+						</div><!-- /.navbar-collapse -->
+					</nav>
+				</div>
+	
+			<!-- search-scripts -->
+			<script src="__JS__/classie.js"></script>
+			<script src="__JS__/uisearch.js"></script>
+				<script>
+					new UISearch( document.getElementById( 'sb-search' ) );
+				</script>
+			<!-- //search-scripts -->
+			</div>
+<!-- //header -->
+<!-- login-page -->
+	<div class="login">
+		<div class="login-grids">
+			<h1>Create Group</h1>
+            <div class="col-md-6 log">
+                <form enctype="multipart/form-data" method="post" action="/index.php/Home/Index/groupcreat/uid/{$uid}">
+                    <h5>Group Name</h5>
+                    <div class="person-content">
+						<input type="text" placeholder="" name="gname" id="groupname" onblur="checkgname()" style="vertical-align: inherit">
+						<span id="gnamecheck" style="color:red;font-size:12px;margin-left: 10px;"></span>
+                    </div>
+                    <hr />
+                    <h5>Group Introduction</h5>
+                    <div class="person-content">
+						<textarea rows="4" cols="50" name="ginfo"></textarea>
+                    </div>
+                    <hr />
+					<h5>Profile Picture</h5>
+					<div class="person-content">
+						<div class="am-form-group am-form-file">
+							<img src="__IMAGES__/error.png" alt="" id="uploadhimg" width="50" height="50">
+							<button type="button" class="am-btn am-btn-danger am-btn-sm" style="margin-left: 20px;">Add image</button>
+							<input type="file" id="himgUpload" name="photo1" >
+						</div>
+					</div>
+                    <hr />
+
+                    <input type="submit" value="Confirm" name="pub">
+                </form>
+            </div>
+
+			<!--<div class="col-md-6 login-right">
+					<h3>New Registration</h3>
+					<p>By creating an account with our store, you will be able to move through the checkout process faster, store multiple shipping addresses, view and track your orders in your account and more.</p>
+					<a href="register.html" class="hvr-bounce-to-bottom button">Create An Account</a>
+			</div>
+			-->
+			<div class="clearfix"></div>
+		</div>
+	</div>
+<!-- //login-page -->
+		</div>
+	</div>
+<!-- footer -->
+	<div class="footer-bottom">
+		<div class="container">
+		</div>
+	</div>
+<!-- //footer -->
+<!-- for bootstrap working -->
+		<script src="__JS__/bootstrap.js"> </script>
+<!-- //for bootstrap working -->
+</body>
+<script type="text/javascript">
+    $("#himgUpload").change(function(e) {
+
+        for (var i = 0; i < e.target.files.length; i++) {
+            var file = e.target.files.item(i);
+            var freader = new FileReader();
+            freader.readAsDataURL(file);
+            freader.onload = function(e) {
+                var src = e.target.result;
+
+                $("#uploadhimg").attr("src",src);
+            }
+        }
+    });
+    function checkgname(){
+
+        var nm=document.getElementById('groupname').value;
+        var xhr=new XMLHttpRequest();
+
+        xhr.onreadystatechange=function(){
+            if (xhr.responseText=='Group name available！') {
+                document.getElementById('gnamecheck').innerHTML="<img src='__IMAGES__/right.png' height='15px' width='15px'/>";
+            }
+            else{
+                document.getElementById('gnamecheck').innerHTML=xhr.responseText;
+            }
+        }
+        xhr.open('get','/index.php/Home/Index/checkgname/gname/'+nm);
+        xhr.send(null);
+    }
+</script>
+</html>

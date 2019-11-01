@@ -1,0 +1,187 @@
+﻿<!DOCTYPE html>
+<?php session_start(); ?>
+<html>
+<head>
+<title>{$type}</title>
+<!-- for-mobile-apps -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //for-mobile-apps -->
+<link href="__CSS__/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href="__CSS__/style.css" rel="stylesheet" type="text/css" media="all" />
+	<link rel="stylesheet" href="__ASSETS__/css/amazeui.min.css" />
+	<link rel="stylesheet" href="__ASSETS__/css/admin.css">
+	<link rel="stylesheet" href="__ASSETS__/css/app.css">
+<!-- js -->
+<script src="__JS__/jquery-1.11.1.min.js"></script>
+<!-- //js -->
+<!-- start-smoth-scrolling -->
+
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event){		
+			event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+		});
+	});
+</script>
+<!-- start-smoth-scrolling -->
+</head>
+	
+<body >
+<!-- banner-body -->
+	<div class="banner-body page">
+		<div class="container">
+<!-- header -->
+			<div class="header">
+				<div class="header-nav">
+					<nav class="navbar navbar-default">
+						<!-- Brand and toggle get grouped for better mobile display -->
+						<div class="navbar-header">
+						  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						  </button>
+						   <a class="navbar-brand" href="/index.php/Home/Index/index"><span>AI</span></a>
+						</div>
+
+						<!-- Collect the nav links, forms, and other content for toggling -->
+						<div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+						 <ul class="nav navbar-nav" style="margin-left: 20px">
+							<li class="hvr-bounce-to-bottom"><a href="/index.php/Home/Index/index">Home</a></li>
+							<li class="hvr-bounce-to-bottom"><a href="/index.php/Home/Index/AI">Experience-Zone</a></li>
+							<li class="hvr-bounce-to-bottom active"><a href="/index.php/Home/Index/portfolio">News</a></li>
+							<li class="hvr-bounce-to-bottom"><a href="/index.php/Home/Index/group">Group</a></li>
+							<li class="hvr-bounce-to-bottom"><a href="#">Contact Us</a></li>
+						  </ul>
+							<div>
+								<form class="navbar-form navbar-left" action="/index.php/Home/Index/search" method="post">
+									<input type="text" name="str" class="form-control" placeholder="Search" style="outline: none;position: absolute;width: 220px;opacity: 0.75;">
+									<button type="submit" class="bimg" style="outline: none;border: none;cursor: pointer;position: absolute;left: 780px;"></button>
+								</form>
+							</div>
+
+							<if condition="empty($_SESSION['username']) neq true">
+								<if condition="$tag eq 0">
+									<div style="vertical-align: middle;text-align: center; margin-left:220px;margin-top:12px;display: inline-block">
+										<a style="font-weight: bold" href="/index.php/Home/Index/backindex">DMS</a>
+									</div>
+									<div style="vertical-align: middle;text-align: center; margin-left:15px;margin-top:12px;display: inline-block">
+										<a style="font-weight: bold" href="/index.php/Home/Index/desession">Logoff</a>
+									</div>
+								</if>
+								<if condition="$tag eq 1">
+									<div style="vertical-align: middle;text-align: center; margin-left:220px;margin-top:12px;display: inline-block">
+										<a style="font-weight: bold" href="/index.php/Home/Index/desession">Logoff</a>
+									</div>
+								</if>
+							</if>
+							<div class="sign-in" style="display: inline-block">
+								<if condition="empty($_SESSION['username']) eq true">
+									<ul>
+										<li><a href="/index.php/Home/Index/login">Login</a>/</li>
+										<li><a href="/index.php/Home/Index/register">Register</a></li>
+									</ul>
+								</if>
+								<if condition="empty($_SESSION['username']) neq true">
+									<ul>
+										<li><a href="/index.php/Home/Index/personal/uid/{$uid}">Welcome</a></li>
+										<li><a href="/index.php/Home/Index/personal/uid/{$uid}">{$name}</a></li>
+									</ul>
+
+								</if>
+							</div>
+						</div><!-- /.navbar-collapse -->
+					</nav>
+				</div>
+	
+			<!-- search-scripts -->
+
+				<script>
+					new UISearch( document.getElementById( 'sb-search' ) );
+				</script>
+			<!-- //search-scripts -->
+			</div>
+<!-- //header -->
+<!-- pages -->
+			<div class="pages">
+				<div class="headdings">
+					<h3 class="ghj">{$type}</h3>
+					<hr/>
+
+					<div class="am-g">
+						<div class="tpl-table-images">
+							  <volist name="articles" id="vo">
+							  <div class="am-u-sm-12 am-u-md-6 am-u-lg-4" style="float: left;">
+								  <div class="tpl-table-images-content">
+									  <div class="tpl-table-images-content-i-time">Release Time：{$vo.atime}</div>
+									  <div class="tpl-i-title" style="height:70px;">
+										  {$vo.atitle}
+									  </div>
+									  <a href="javascript:;" class="tpl-table-images-content-i">
+
+										  <span class="tpl-table-images-content-i-shadow"></span>
+										  <img src="{$vo.aimage}" alt="" width="300" height="180">
+									  </a>
+									  <div class="tpl-table-images-content-block">
+										  <div class="tpl-i-font">
+
+										  </div>
+										  <div class="tpl-i-more">
+											  <div><br></div>
+										  </div>
+										  <div class="am-btn-toolbar">
+											  <div class="am-btn-group am-btn-group-xs tpl-edit-content-btn">
+												  <a href="/index.php/Home/Index/single/aid/{$vo.aid}" class="btn btn-primary" role="button">View</a>
+											  </div>
+										  </div>
+									  </div>
+								  </div>
+							  </div>
+							  </volist>
+						</div>
+
+							  <!--<tr>
+								  <td><h3 id="h3.-bootstrap-heading"><a class="anchorjs-link" href="single.html"><span class="anchorjs-icon">数码资讯</span></a></h3></td>
+								  <td class="type-info">2017-05-09</td>
+							  </tr>-->
+									  <table class="table">
+										  <tbody>
+							    <tr>
+									<td colspan="2" style="text-align: center;">
+										<nav>
+											<ul class="pagination pagination-lg">
+												<li class="disabled"><a href="#"><i class="fa fa-angle-left">«</i></a></li>
+												<li class="active"><a href="#">1</a></li>
+												<li><a href="#">2</a></li>
+												<li><a href="#">3</a></li>
+												<li><a href="#">4</a></li>
+												<li><a href="#">5</a></li>
+												<li><a href="#"><i class="fa fa-angle-right">»</i></a></li>
+											</ul>
+										</nav>
+									</td>
+								</tr>
+							  </tbody>
+							</table>
+						</div>
+
+				</div>
+
+						<div class="clearfix"> </div>
+				</div>
+
+			</div>
+<!-- //pages -->
+		</div>
+	</div>
+<!-- for bootstrap working -->
+		<script src="__JS__/bootstrap.js"> </script>
+<!-- //for bootstrap working -->
+</body>
+</html>

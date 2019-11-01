@@ -1,0 +1,202 @@
+﻿<!DOCTYPE html>
+<?php session_start(); ?>
+<html>
+<head>
+<title></title>
+<!-- for-mobile-apps -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //for-mobile-apps -->
+<link href="__CSS__/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href="__CSS__/style.css" rel="stylesheet" type="text/css" media="all" />
+<!-- js -->
+<script src="__JS__/jquery-1.11.1.min.js"></script>
+<!-- //js -->
+<!-- start-smoth-scrolling -->
+<script type="text/javascript" src="__JS__/move-top.js"></script>
+<script type="text/javascript" src="__JS__/easing.js"></script>
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event){		
+			event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+		});
+	});
+</script>
+<!-- start-smoth-scrolling -->
+</head>
+	
+<body>
+<!-- banner-body -->
+	<div class="banner-body logn">
+		<div class="container">
+<!-- header -->
+			<div class="header">
+				<div class="header-nav">
+					<nav class="navbar navbar-default">
+						<!-- Brand and toggle get grouped for better mobile display -->
+						<div class="navbar-header">
+						  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						  </button>
+						   <a class="navbar-brand" href="/index.php/Home/Index/index"><span>AI</span></a>
+						</div>
+
+						<!-- Collect the nav links, forms, and other content for toggling -->
+						<div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+						 <ul class="nav navbar-nav" style="margin-left: 20px">
+							<li class="hvr-bounce-to-bottom"><a href="/index.php/Home/Index/index">Home</a></li>
+							<li class="hvr-bounce-to-bottom"><a href="/index.php/Home/Index/AI">Experience-Zone</a></li>
+							<li class="hvr-bounce-to-bottom"><a href="/index.php/Home/Index/portfolio">News</a></li>
+							<li class="hvr-bounce-to-bottom"><a href="/index.php/Home/Index/group">Group</a></li>
+							<li class="hvr-bounce-to-bottom"><a href="#">Contact Us</a></li>
+						  </ul>
+							<div>
+								<form class="navbar-form navbar-left" action="/index.php/Home/Index/search" method="post">
+									<input type="text" name="str" class="form-control" placeholder="Search" style="outline: none;position: absolute;width: 220px;opacity: 0.75;">
+									<button type="submit" class="bimg" style="outline: none;border: none;cursor: pointer;position: absolute;left: 780px;"></button>
+								</form>
+							</div>
+
+							<if condition="empty($_SESSION['username']) neq true">
+								<if condition="$tag eq 0">
+									<div style="vertical-align: middle;text-align: center; margin-left:220px;margin-top:12px;display: inline-block">
+										<a style="font-weight: bold" href="/index.php/Home/Index/backindex">DMS</a>
+									</div>
+									<div style="vertical-align: middle;text-align: center; margin-left:15px;margin-top:12px;display: inline-block">
+										<a style="font-weight: bold" href="/index.php/Home/Index/desession">Logoff</a>
+									</div>
+								</if>
+								<if condition="$tag eq 1">
+									<div style="vertical-align: middle;text-align: center; margin-left:220px;margin-top:12px;display: inline-block">
+										<a style="font-weight: bold" href="/index.php/Home/Index/desession">Logoff</a>
+									</div>
+								</if>
+							</if>
+							<div class="sign-in" style="display: inline-block">
+								<if condition="empty($_SESSION['username']) eq true">
+									<ul>
+										<li><a href="/index.php/Home/Index/login">Login</a>/</li>
+										<li><a href="/index.php/Home/Index/register">Register</a></li>
+									</ul>
+								</if>
+								<if condition="empty($_SESSION['username']) neq true">
+									<ul>
+										<li><a href="/index.php/Home/Index/personal/uid/{$uid2}">Welcome</a></li>
+										<li><a href="/index.php/Home/Index/personal/uid/{$uid2}">{$name2}</a></li>
+									</ul>
+
+								</if>
+							</div>
+						</div><!-- /.navbar-collapse -->
+					</nav>
+				</div>
+	
+			<!-- search-scripts -->
+			<script src="__JS__/classie.js"></script>
+			<script src="__JS__/uisearch.js"></script>
+				<script>
+					new UISearch( document.getElementById( 'sb-search' ) );
+				</script>
+			<!-- //search-scripts -->
+			</div>
+<!-- //header -->
+<!-- login-page -->
+	<div class="login">
+		<div class="login-grids">
+            <h3>Personal Information</h3>
+
+            <div class="col-md-6 log">
+                <form>
+                    <h5>Username</h5>
+                    <div class="person-content">
+                        <span>{$username}</span>
+                    </div>
+                    <hr />
+					<h5>Name</h5>
+					<div class="person-content">
+						<span>{$name}</span>
+					</div>
+					<hr />
+                    <h5>Gender</h5>
+                    <div class="person-content">
+                        <span>{$sex}</span>
+                    </div>
+                    <hr />
+                    <h5>Email</h5>
+                    <div class="person-content">
+                        <span>{$email}</span>
+                    </div>
+                    <hr />
+                    <h5>Profile Picture</h5>
+                    <div class="person-content">
+						<img src="{$image}" alt="" id="" width="50" height="50">
+                    </div>
+                    <hr />
+                    <h5>Group</h5>
+                    <div class="person-content">
+                        <h4>
+							<volist name="group" id="vo">
+                            <a href="/index.php/Home/Index/group_topic/gid/{$vo.gid}"><span class="label label-primary">{$vo.gname}</span></a>&nbsp;
+							</volist>
+                        </h4>
+                    </div>
+                    <hr class="cleanFloat"/>
+					  <h5>Post</h5>
+						<ul>
+						<volist name="topic" id="vo">
+							<li style="list-style-type:none;">
+								<div class="content">
+									<div class="bs-example">
+										<table class="table">
+											<tbody>
+											<tr>
+												<td><a class="anchorjs-link" href="/index.php/Home/Index/topic/tid/{$vo.tid}"><span class="anchorjs-icon" style="font-size: 20px">{$vo.ttitle}</span></a></td>
+											</tr>
+											</tbody>
+										</table>
+									</div>
+									<div class="info" style="margin-left: 10px">
+										<span></span>
+										Posted on {$vo.ttime}
+									</div>
+								</div>
+							</li>
+						</volist>
+					</ul>
+                </form>
+            </div>
+			<if condition="$uid2 eq $uid">
+				<a class="person-a" href="/index.php/Home/Index/setting/uid/{$uid}">Edit-></a><br><br><br><br>
+				<a class="person-a" href="/index.php/Home/Index/creat_group/uid/{$uid}">Create Group-></a>
+			</if>
+
+			<!--<div class="col-md-6 login-right">
+					<h3>New Registration</h3>
+					<p>By creating an account with our store, you will be able to move through the checkout process faster, store multiple shipping addresses, view and track your orders in your account and more.</p>
+					<a href="register.html" class="hvr-bounce-to-bottom button">Create An Account</a>
+			</div>
+			-->
+			<div class="clearfix"></div>
+		</div>
+	</div>
+<!-- //login-page -->
+		</div>
+	</div>
+<!-- footer -->
+	<div class="footer-bottom">
+		<div class="container">
+		</div>
+	</div>
+<!-- //footer -->
+<!-- for bootstrap working -->
+		<script src="__JS__/bootstrap.js"> </script>
+<!-- //for bootstrap working -->
+</body>
+</html>

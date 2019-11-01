@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<?php session_start(); ?>
+<html>
+<head>
+    <title></title>
+    <!-- for-mobile-apps -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+    function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- //for-mobile-apps -->
+    <link href="__CSS__/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="__CSS__/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="__ASSETS__/css/amazeui.min.css" />
+    <link rel="stylesheet" href="__ASSETS__/css/admin.css">
+    <link rel="stylesheet" href="__ASSETS__/css/app.css">
+    <!-- js -->
+    <script src="__JS__/jquery-1.11.1.min.js"></script>
+    <!-- //js -->
+    <!-- start-smoth-scrolling -->
+    <script type="text/javascript" src="__JS__/move-top.js"></script>
+    <script type="text/javascript" src="__JS__/easing.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event){
+                event.preventDefault();
+                $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+            });
+        });
+    </script>
+    <!-- start-smoth-scrolling -->
+</head>
+
+<body>
+<!-- banner-body -->
+<div class="banner-body abt">
+    <div class="container">
+        <!-- header -->
+        <div class="header">
+            <div class="header-nav">
+                <nav class="navbar navbar-default">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="/index.php/Home/Index/index"><span>AI</span></a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav" style="margin-left: 20px">
+                            <li class="hvr-bounce-to-bottom"><a href="/index.php/Home/Index/index">Home</a></li>
+                            <li class="hvr-bounce-to-bottom"><a href="/index.php/Home/Index/AI">Experience-Zone</a></li>
+                            <li class="hvr-bounce-to-bottom"><a href="/index.php/Home/Index/portfolio">News</a></li>
+                            <li class="hvr-bounce-to-bottom active"><a href="/index.php/Home/Index/group">Group</a></li>
+                            <li class="hvr-bounce-to-bottom"><a href="#">Contact Us</a></li>
+                        </ul>
+                        <div>
+                            <form class="navbar-form navbar-left" action="/index.php/Home/Index/search" method="post">
+                                <input type="text" name="str" class="form-control" placeholder="Search" style="outline: none;position: absolute;width: 220px;opacity: 0.75;">
+                                <button type="submit" class="bimg" style="outline: none;border: none;cursor: pointer;position: absolute;left: 780px;"></button>
+                            </form>
+                        </div>
+
+                        <if condition="empty($_SESSION['username']) neq true">
+                            <if condition="$tag eq 0">
+                                <div style="vertical-align: middle;text-align: center; margin-left:220px;margin-top:12px;display: inline-block">
+                                    <a style="font-weight: bold" href="/index.php/Home/Index/backindex">DMS</a>
+                                </div>
+                                <div style="vertical-align: middle;text-align: center; margin-left:15px;margin-top:12px;display: inline-block">
+                                    <a style="font-weight: bold" href="/index.php/Home/Index/desession">Logoff</a>
+                                </div>
+                            </if>
+                            <if condition="$tag eq 1">
+                                <div style="vertical-align: middle;text-align: center; margin-left:220px;margin-top:12px;display: inline-block">
+                                    <a style="font-weight: bold" href="/index.php/Home/Index/desession">Logoff</a>
+                                </div>
+                            </if>
+                        </if>
+                        <div class="sign-in" style="display: inline-block">
+                            <if condition="empty($_SESSION['username']) eq true">
+                                <ul>
+                                    <li><a href="/index.php/Home/Index/login">Login</a>/</li>
+                                    <li><a href="/index.php/Home/Index/register">Register</a></li>
+                                </ul>
+                            </if>
+                            <if condition="empty($_SESSION['username']) neq true">
+                                <ul>
+                                    <li><a href="/index.php/Home/Index/personal/uid/{$uid}">Welcome</a></li>
+                                    <li><a href="/index.php/Home/Index/personal/uid/{$uid}">{$name}</a></li>
+                                </ul>
+
+                            </if>
+                        </div>
+                    </div><!-- /.navbar-collapse -->
+                </nav>
+            </div>
+
+            <!-- search-scripts -->
+            <script src="__JS__/classie.js"></script>
+            <script src="__JS__/uisearch.js"></script>
+            <script>
+                new UISearch( document.getElementById( 'sb-search' ) );
+            </script>
+            <!-- //search-scripts -->
+        </div>
+        <!-- //header -->
+        <!-- single -->
+        <div class="single-page-artical">
+            <div>
+                <h3 style="color: #C34C21;text-align: left;text-transform: capitalize;padding: 2em 0 1em;font-size:2em;margin: 0;font-family: LobsterTwo-Regular;">{$topic.ttitle}</h3>
+                <div><img src="{$topic.image}" width="35" height="35"><span style="color: #C34C21;text-align: left;text-transform: capitalize;padding: 2em 0 1em;font-size:18px;margin: 0;font-family: LobsterTwo-Regular;margin-left: 15px">{$topic.name}</span></div>
+                <hr>
+                {$topic.ttext}
+            </div>
+            <div class="artical-links">
+                <ul>
+                    <li><a href="#"><small class="date"> </small><span>{$topic.ttime}</span></a></li>
+                    <li><a href="#" class="view-like"><small class="good"> </small><span class="likeNum">{$topic.tlike}</span></a></li>
+                    <if condition="$topic['uid'] eq $uid">
+                    <li><a href="/index.php/Home/Index/topicdelete_user/tid/{$topic.tid}/gid/{$topic.gid}"><span>Delete</span></a></li>
+                    </if>
+                    <li><a href="#"><small class="link"> </small><span>Link</span></a></li>
+                </ul>
+            </div>
+            <br><br>
+            <div class="comment-grid-top">
+                <h3>Comment</h3>
+                <volist name="reply" id="vo">
+                    <div class="comments-top-top">
+                        <div class="top-comment-left">
+                            <a href="#"><img class="img-responsive" src="{$vo.image}" alt="" width="60" height="60"></a>
+                        </div>
+                        <div class="top-comment-right">
+                            <ul>
+                                <li><span class="left-at"><a href="#">{$vo.name}</a></span></li>
+                                <li><span class="right-at">{$vo.rtime}</span></li>
+                                <if condition="$vo['uid'] eq $uid">
+                                <li><a href="/index.php/Home/Index/replydelete/rid/{$vo.rid}/tid/{$topic.tid}"><span style="font-size: 14px">Delete</span></a></li>
+                                </if>
+                            </ul>
+                            <p>{$vo.rtext}</p>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                </volist>
+                <div>
+                    <div><label>Commenting:</label></div>
+                    <if condition="empty($_SESSION['username']) eq true">
+                        <div><h3 style="color: #C34C21;text-align: left;text-transform: capitalize;padding: 2em 0 1em;font-size:20px;margin: 0;font-family: LobsterTwo-Regular;">Please Login First！</h3></div>
+                    </if>
+                    <if condition="empty($_SESSION['username']) neq true">
+                        <form  method="post" action="/index.php/Home/Index/reply/tid/{$topic.tid}">
+                            <div>
+                                <textarea name="reply" cols="50" rows="5" style="margin-top: 10px"></textarea>
+                                <br>
+                                <input type="submit" value="Submit" style="margin-top: 10px" name="sub" class="am-btn am-btn-danger am-btn-sm">
+                            </div>
+                        </form>
+                    </if>
+                </div>
+            </div>
+            <!-- single -->
+        </div>
+    </div>
+    <!-- for bootstrap working -->
+    <script src="__JS__/bootstrap.js"> </script>
+    <!-- //for bootstrap working -->
+</div>
+</body>
+<script type="text/javascript">
+    $(function(){
+        $('.view-like').one("click",function () {
+            $.ajax({
+                type:'POST',
+                url:'/index.php/Home/Index/topiclike/tid/{$topic.tid}',
+                success:function (like) {
+                    var likeNum=like;
+                    $('.likeNum').html(likeNum);
+                }
+            });
+
+        });
+    });
+</script>
+</html>
